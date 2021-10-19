@@ -7,7 +7,7 @@ public class Bill {
 	public Date billDate;
 	public float billAmount;
 	public VAT VAT;
-	public float billDeduction;
+	public BillDeduction billDeduction;
 	public float billTotal;
 	public int deductionPercentage;
 
@@ -15,11 +15,12 @@ public class Bill {
 	public void totalCalc() {
 		
 		float VATema;
+		float billDeductionema;
 // Dedukzioa kalkulatu
-		billDeduction = (billAmount * deductionPercentage) / 100;
+		billDeductionema = this.billDeduction.calc(billTotal);
 // VAT kalkulatzen dugu
-		VATema = VAT.calcVAT(this.billDeduction);
+		VATema = VAT.calcVAT(billDeductionema);
 // Totala kalkulatzen dugu
-		billTotal = (billAmount - billDeduction) + VATema;
+		billTotal = (billAmount - billDeductionema) + VATema;
 	}
 }
