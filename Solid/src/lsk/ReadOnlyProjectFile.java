@@ -1,12 +1,17 @@
 package lsk;
 
-public class ReadOnlyProjectFile extends ProjectFile{
+public class ReadOnlyProjectFile implements LoadableFile {
+	public String filePath;
+	
 	public ReadOnlyProjectFile(String filePath) {
-		super(filePath);
+		this.filePath=filePath;
 		// TODO Auto-generated constructor stub
 	}
 
-	public void storeFile() {
-		System.out.println("ERROR, can not be Saved");
+	@Override
+	public void loadFile() {
+		System.out.println("file loaded from " + filePath);
+		
 	}
+
 }
